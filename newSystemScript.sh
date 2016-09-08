@@ -1,60 +1,82 @@
 #!/bin/bash
 
 #update and upgrade respository before installing
-sudo apt-get update && sudo apt-get upgrade
-sudo apt-get dist-upgrade
+apt-get update && sudo apt-get upgrade
+apt-get dist-upgrade
 
 # text editors
-sudo apt-get install vim emacs gedit
-
+apt-get install vim emacs gedit
 
 # python 2.7.11
-sudo apt-get install python -y
+apt-get install python -y
 
 # idle
-sudo apt-get install idle -y
+apt-get install idle -y
 
 # git
-sudo apt-get install git
+apt-get install git
 
 # gcc g++
-sudo apt-get install g++ && sudo apt-get install gcc
+apt-get install g++ gcc
 
 # gdb (C++ debugger)
-sudo apt-get install gdb
+apt-get install gdb
 
 # sublime
-sudo apt-get install sublime-text
+apt-get install sublime-text
 
 # oracle virtual box
-sudo apt-get install virtualbox-5.1 
+apt-get install virtualbox-5.1 
 
 # GNU octave
-sudo apt-get install octave
+apt-get install octave
 
+#java jdk jre
+apt-get install default-jre
+apt-get install default-jdk
+add-apt-repository ppa:webupd8team/java
+apt-get update 
+apt-get install oracle-java8-installer
+update-alternatives --display java
+echo 'JAVA_HOME=/usr/lib/jvm/java-8-oracle' >> /etc/environment
+
+#android studio
+wget https://dl.google.com/dl/android/studio/ide-zips/2.1.3.0/android-studio-ide-143.3101438-linux.zip
+unzip android-studio*.zip
+cd ./android-studio/bin/
+chmod 777 studio.sh
+./studio.sh
+
+#chrome
+apt-get install google-chrome-stable
+
+#vlc
+apt-get install vlc
 
 #----------------Devops Tools---------------------#
 
 # packer
 wget https://releases.hashicorp.com/packer/0.10.1/packer_0.10.1_linux_amd64.zip
-sudo apt-get install unzip
+apt-get install unzip
 unzip packer_0.10.1_linux_amd64.zip -d /usr/local/
 export PATH=$PATH:/usr/local/
 
 # vagrant
-sudo apt-get install vagrant 
+apt-get install vagrant 
 
 #ansible 
-sudo apt-get install ansible
+apt-get install ansible
 
-#docker
+#docker (everything as sudo)
+apt-get update
+apt-get install apt-transport-https ca-certificates
+apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+rm /etc/apt/sources.list.d/docker.list
+touch /etc/apt/sources.list.d/docker.list
+echo 'deb https://apt.dockerproject.org/repo ubuntu-xenial main' > /etc/apt/sources.list.d/docker.list
+apt-get update
+apt-get purge lxc-docker
+apt-get install docker-engine
+docker --version
 
-#java jdk jre
 
-#android studio
-
-#chrome
-sudo apt-get install google-chrome-stable
-
-#vlc
-sudo apt-get install vlc
