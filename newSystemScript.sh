@@ -81,5 +81,17 @@ apt-get purge lxc-docker
 apt-get install -y docker-engine
 docker --version
 
+
+#install dropbox
+
+#install vm ware workstation
+
+#install skype
+
+#install wps office
+
+#install netbeans
+
+
 echo 'End of the installtion script'
 # End of the installtion script
