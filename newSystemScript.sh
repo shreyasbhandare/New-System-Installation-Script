@@ -92,6 +92,8 @@ docker --version
 
 #install netbeans
 
+#install jenkins
+
 
 echo 'End of the installtion script'
 # End of the installtion script
