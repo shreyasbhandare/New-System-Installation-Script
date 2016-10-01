@@ -94,6 +94,8 @@ docker --version
 
 #install jenkins
 
+#install filezilla
+
 
 echo 'End of the installtion script'
 # End of the installtion script
